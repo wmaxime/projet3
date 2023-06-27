@@ -9,7 +9,7 @@ function Welcome() {
     <div className="welcome">
       <h1>👋 Welcome to the Voting Dapp</h1>
       <p>
-        You are connected with this address : {state.accounts}
+        You are connected with this address : {state.accounts[0]}
       </p>
     </div>
   );
