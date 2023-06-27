@@ -1,11 +1,15 @@
+import { useState, useEffect } from "react";
+import useEth from "../../contexts/EthContext/useEth";
+
 function Welcome() {
+  const { state } = useEth(); 
+
+
   return (
     <div className="welcome">
-      <h1>👋 Welcome to the Truffle + React Box!</h1>
+      <h1>👋 Welcome to the Voting Dapp</h1>
       <p>
-        This is everything you need to start using Truffle to write,
-        compile, test, and deploy smart contracts, and interact with
-        them from a React app.
+        You are connected with this address : {state.accounts}
       </p>
     </div>
   );

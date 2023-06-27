@@ -6,7 +6,7 @@ function Intro() {
   return (
     <>
       <Welcome />
-      <Tree />
+      {/* <Tree /> */}
       <Desc />
     </>
   );
