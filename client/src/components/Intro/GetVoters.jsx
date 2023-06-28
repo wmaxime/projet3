@@ -1,27 +1,28 @@
-import useEth from "../../contexts/EthContext/useEth";
-import { useState, useEffect } from "react";
+//import useEth from "../../contexts/EthContext/useEth";
+import { useState } from "react";
 
 function GetVoters() {
-  const { state: { accounts, contract, artifact } } = useEth();
-  const [workflowStatus, setWorkflowStatus] = useState(0);
+  //const { state: { accounts, contract, artifact } } = useEth();
+  const [address, setAddress] = useState();
 
-  // Check if Voter
-  useEffect(() => {
-      async function getWorkflowStatus() {
-        if (artifact) {
-          const status = await contract.methods.workflowStatus().call({ from: accounts[0] });
-          setWorkflowStatus(parseInt(status));
-          console.log(workflowStatus);
-        }
-      }
-      getWorkflowStatus();
-  });
+  //Set Value on Input Event
+  const handleChange = event => {
+    setAddress(event.target.value);
+    console.log(address);
+  };
+
+  // Set Value on Click Button
+  const handleClick = event => {
+    event.preventDefault();
+    // 👇️ value of input field
+    console.log("OK");
+  };
 
   return (
     <div>
         <p>Check if address is a registred Voter (Only Voters can check)</p>
-        <input type="text" id="" size="50" placeholder="Example : 0xABCDE123456..."/>&emsp;
-        <button>Check address</button>
+        <input type="text" id="" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange}/>&emsp;
+        <button onClick={handleClick}>Check address</button>
     </div>
   );
 }
