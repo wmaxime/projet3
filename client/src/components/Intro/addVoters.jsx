@@ -21,7 +21,7 @@ function AddVoters() {
   //Set Value on Input Event
   const handleChange = event => {
     setAddress(event.target.value);
-    console.log(address);
+    console.log("AddVoters : " + event.target.value);
   };
 
     // Set Value on Click Button
@@ -32,7 +32,7 @@ function AddVoters() {
         return;
       }
       await contract.methods.addVoter(address).send({ from: accounts[0] });
-  
+      window.location.reload(false);
     };
 
   return (
@@ -40,7 +40,7 @@ function AddVoters() {
     {isOwner && workflowStatus === 0
       ? <div>
         <p>Register Voter</p>
-        <input type="text" id="" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange}/>&emsp;
+        <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange}/>&emsp;
         <button onClick={handleClick}>Add Voter address</button>
         </div>
       : ''
