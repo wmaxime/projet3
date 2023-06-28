@@ -1,9 +1,10 @@
-//import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../contexts/EthContext/useEth";
 import { useState } from "react";
 
 function GetVoters() {
-  //const { state: { accounts, contract, artifact } } = useEth();
+  const { state: { accounts, contract } } = useEth();
   const [address, setAddress] = useState();
+  //const [isVoter, setisVoter] = useState();
 
   //Set Value on Input Event
   const handleChange = event => {
@@ -12,10 +13,14 @@ function GetVoters() {
   };
 
   // Set Value on Click Button
-  const handleClick = event => {
-    event.preventDefault();
-    // 👇️ value of input field
-    console.log("OK");
+  const handleClick = async (event) => {
+    if (address === "") {
+      alert("Please enter an address");
+      return;
+    }
+    //const getVoter = await contract.methods.getVoter(address).send({ from: accounts[0] });
+    //setisVoter(getVoter.isRegistered);
+    console.log(event.target.value);
   };
 
   return (

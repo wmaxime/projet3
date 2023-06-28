@@ -31,8 +31,8 @@ function AddVoters() {
         alert("Please enter an address");
         return;
       }
-
       await contract.methods.addVoter(address).send({ from: accounts[0] });
+  
     };
 
   return (
