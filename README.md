@@ -1,39 +1,34 @@
-# React Truffle Box
+# Projet - Système de vote 3
 
-This box comes with everything you need to start using Truffle to write, compile, test, and deploy smart contracts, and interact with them from a React app.
+Oui oui, nous allons repartir du défi “Système de vote” #2 ! 
 
-## Installation
+Alors depuis, vous avez vu la partie sécurité des smart contracts ainsi que la partie DApp. 
 
-First ensure you are in an empty directory.
+Vous en doutez certainement, à ce stade vous allez revoir la sécurité et l’optimisation de votre smart contract et créer une DApp qui répond aux spécifications citées ci-dessous et déployer votre DApp sur Heroku et Github Pages, comme vu dans le chapitre 4.
 
-Run the `unbox` command using 1 of 2 ways.
+## Spécifications
+## Votre Dapp doit permettre : 
 
-```sh
-# Install Truffle globally and run `truffle unbox`
-$ npm install -g truffle
-$ truffle unbox react
-```
+* l’enregistrement d’une liste blanche d'électeurs.
+* à l'administrateur de commencer la session d'enregistrement de la proposition.
+* aux électeurs inscrits d’enregistrer leurs propositions.
+* à l'administrateur de mettre fin à la session d'enregistrement des propositions.
+* à l'administrateur de commencer la session de vote.
+* aux électeurs inscrits de voter pour leurs propositions préférées.
+* à l'administrateur de mettre fin à la session de vote.
+* à l'administrateur de comptabiliser les votes.
+* à tout le monde de consulter le résultat.
 
-```sh
-# Alternatively, run `truffle unbox` via npx
-$ npx truffle unbox react
-```
+## Les recommandations et exigences
 
-Start the react dev server.
+* Votre code doit être optimal.
+* Votre Dapp doit être sécurisée.
+* Vous devez utiliser la box react de Truffle.
 
-```sh
-$ cd client
-$ npm start
-```
+**********************************************************************************************************************************************
 
-From there, follow the instructions on the hosted React app. It will walk you through using Truffle and Ganache to deploy the `SimpleStorage` contract, making calls to it, and sending transactions to change the contract's state.
+Notre Vidéo de démo : URL LINK
 
-## FAQ
+Notre DAPP en live (HEROKU, AWS, Vercel...) : URL LINK
 
-- __How do I use this with Ganache (or any other network)?__
-
-  The Truffle project is set to deploy to Ganache by default. If you'd like to change this, it's as easy as modifying the Truffle config file! Check out [our documentation on adding network configurations](https://trufflesuite.com/docs/truffle/reference/configuration/#networks). From there, you can run `truffle migrate` pointed to another network, restart the React dev server, and see the change take place.
-
-- __Where can I find more resources?__
-
-  This Box is a sweet combo of [Truffle](https://trufflesuite.com) and [Webpack](https://webpack.js.org). Either one would be a great place to start!
+### NOTRE PROJET
