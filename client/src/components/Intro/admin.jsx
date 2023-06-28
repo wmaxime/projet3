@@ -25,6 +25,14 @@ function Admin() {
         </div>
       : ''
     }
+    {isOwner && workflowStatus === 0
+      ? <div>
+        <p>Register Voter</p>
+        <input type="text" defaultValue="" id="" size="50" placeholder="Example : 0xABCDE123456..."/>&emsp;
+        <button>Add Voter address</button>
+        </div>
+      : ''
+    }
     </div>
   );
 }
