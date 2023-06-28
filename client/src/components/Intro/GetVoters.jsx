@@ -1,13 +1,11 @@
 import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
-import AddVoters from "./addVoters";
-import GetVoters from "./GetVoters";
 
-function Admin() {
-  const { state: { accounts, isOwner, contract, artifact } } = useEth();
+function GetVoters() {
+  const { state: { accounts, contract, artifact } } = useEth();
   const [workflowStatus, setWorkflowStatus] = useState(0);
 
-  // Display WorkflowStatus
+  // Check if Voter
   useEffect(() => {
       async function getWorkflowStatus() {
         if (artifact) {
@@ -21,19 +19,11 @@ function Admin() {
 
   return (
     <div>
-    {isOwner // Affiche le menu Admin si isOwner
-      ? <div>
-        <h1>Admin Only</h1>
-        </div>
-      : ''
-    }
-    {isOwner && workflowStatus === 0 // Affiche le menu AddVoters si isOwner et bon WorkflowStatus
-      ? <AddVoters />
-      : ''
-    }
-    <GetVoters />
+        <p>Check if address is a registred Voter (Only Voters can check)</p>
+        <input type="text" id="" size="50" placeholder="Example : 0xABCDE123456..."/>&emsp;
+        <button>Check address</button>
     </div>
   );
 }
 
-export default Admin;
+export default GetVoters;
