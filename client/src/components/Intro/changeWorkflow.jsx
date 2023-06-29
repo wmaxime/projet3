@@ -13,7 +13,8 @@ function ChangeWorkflow() {
     "Fermeture des votes",
     "Fin"
   ]
-console.log(description);
+
+  //console.log(description);
 
   // Display WorkflowStatus
   useEffect(() => {
@@ -25,8 +26,9 @@ console.log(description);
     }
     getWorkflowStatus();
   });
-let desc = description[workflowStatus];
-  console.log(desc);
+
+  let desc = description[workflowStatus];
+  //console.log(desc);
 
   return (
     <div>

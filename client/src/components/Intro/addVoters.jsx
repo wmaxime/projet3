@@ -39,7 +39,7 @@ function AddVoters() {
     <div>
     {isOwner && workflowStatus === 0
       ? <div>
-        <p>Register Voter</p>
+        <p>Register Voter : </p>
         <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange}/>&emsp;
         <button onClick={handleClick}>Add Voter address</button>
         </div>

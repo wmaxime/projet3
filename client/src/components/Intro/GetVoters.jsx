@@ -11,13 +11,13 @@ function GetVoters() {
   const handleChange = event => {
     event.preventDefault();
     setAddress(event.target.value);
+    setisVoter();
     console.log("GetVoters : " + event.target.value);
   };
 
   const handleSubmit = event => {
-    console.log('handleSubmit ran');
+    //console.log('handleSubmit ran');
     event.preventDefault();
-
     // 👇️ clear all input values in the form
     event.target.reset();
   };
@@ -47,8 +47,8 @@ function GetVoters() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <p>Check if address is a registred Voter (Only Voters can check)</p>
-        <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange}  ref={inputRef}/> &emsp;
+        <p>Check if address is a registred Voter (Only Voters can check) :</p>
+        <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} ref={inputRef}/> &emsp;
         <button onClick={handleClick} type="submit">Check address</button>
 
         {isVoter === true
@@ -56,7 +56,7 @@ function GetVoters() {
           : ''
         }
         {isVoter === false
-          ? <p>Address is Voter : <font color="red"> {address} </font></p>
+          ? <p>Address is not Voter : <font color="red"> {address} </font></p>
           : ''
         }
 
