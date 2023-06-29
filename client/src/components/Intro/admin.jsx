@@ -35,7 +35,7 @@ function Admin() {
     }
 
     <ChangeWorkflow />
-
+    
     {isOwner && workflowStatus === 0 // Affiche le menu AddVoters si isOwner et bon WorkflowStatus
       ? <AddVoters />
       : ''

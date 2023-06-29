@@ -16,7 +16,6 @@ function GetVoters() {
   };
 
   const handleSubmit = event => {
-    //console.log('handleSubmit ran');
     event.preventDefault();
     // 👇️ clear all input values in the form
     event.target.reset();
@@ -33,10 +32,6 @@ function GetVoters() {
     .getVoter(address)
     .call({ from: accounts[0] })
     .then((results) => {
-      /* if (results.isRegistered === true) {
-        setisVoter("true");
-      }
-      else {setisVoter("false");} */
       setisVoter(results.isRegistered);
       console.log(results.isRegistered);
       console.log("isVoter value : " + isVoter);
@@ -45,7 +40,7 @@ function GetVoters() {
   };
 
   return (
-    <div>
+    <div><br></br>
       <form onSubmit={handleSubmit}>
         <p>Check if address is a registred Voter (Only Voters can check) :</p>
         <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} ref={inputRef}/> &emsp;
