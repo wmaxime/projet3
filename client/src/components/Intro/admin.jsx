@@ -2,6 +2,7 @@ import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 import AddVoters from "./addVoters";
 import GetVoters from "./GetVoters";
+import ChangeWorkflow from "./changeWorkflow";
 
 function Admin() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -32,6 +33,9 @@ function Admin() {
         </div>
       : ''
     }
+
+    <ChangeWorkflow />
+
     {isOwner && workflowStatus === 0 // Affiche le menu AddVoters si isOwner et bon WorkflowStatus
       ? <AddVoters />
       : ''

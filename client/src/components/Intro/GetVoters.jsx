@@ -41,7 +41,7 @@ function GetVoters() {
       console.log(results.isRegistered);
       console.log("isVoter value : " + isVoter);
     })
-    .catch((err) => alert(err));
+    .catch((err) => alert(err.message));
   };
 
   return (
@@ -56,7 +56,7 @@ function GetVoters() {
           : ''
         }
         {isVoter === false
-          ? <p>Address is Voter : <font color="green"> {address} </font></p>
+          ? <p>Address is Voter : <font color="red"> {address} </font></p>
           : ''
         }
 

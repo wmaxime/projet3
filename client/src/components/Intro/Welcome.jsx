@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function Welcome() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
-  const [workflowStatus, setWorkflowStatus] = useState(0);
+  const [workflowStatus, setWorkflowStatus] = useState();
 
   // Display WorkflowStatus
   useEffect(() => {
@@ -18,18 +18,20 @@ function Welcome() {
   });
 
   return (
-    <div className="welcome">
+    <div>
       <h1>👋 Welcome to the Voting Dapp</h1>
-      <p>
-        You are connected with this address : {accounts}
-      </p>
+      {contract 
+      ? <p> You are connected with this address : {accounts} </p>
+      : <p> Veuillez vous connecter sur le bon reseau.</p>
+      }
+
+      <p> WorkflowStatus : {workflowStatus} </p>
+
       {isOwner
         ? 'You are : Owner'
-        : 'You are : Not Owner'
+        : ''
       }
-      <p>
-        WorkflowStatus : {workflowStatus}
-      </p>
+
     </div>
   );
 }
