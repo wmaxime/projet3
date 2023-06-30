@@ -24,11 +24,14 @@ function EthProvider({ children }) {
         let contractOwner = await contract.methods.owner().call();
         const isOwner = contractOwner === accounts[0];
 
+        // current user
+        const user = accounts[0];
+
         // Check if isVoter
 
         dispatch({
           type: actions.init,
-          data: { artifact, web3, accounts, networkID, contract, isOwner }
+          data: { artifact, web3, accounts, networkID, contract, isOwner, user }
         });
       }
     }, []);
