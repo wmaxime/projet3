@@ -1,7 +1,7 @@
 import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
-function ChangeWorkflow() {
+function DisplayWorkflow() {
   const { state: { accounts, contract, artifact } } = useEth();
   const [workflowStatus, setWorkflowStatus] = useState(0);
 
@@ -25,23 +25,14 @@ function ChangeWorkflow() {
     getWorkflowStatus();
   }, [accounts, contract, artifact]);
 
-  let nextStep = description[workflowStatus + 1];
+  let desc = description[workflowStatus];
   //console.log(desc);
 
-    // Set Value on Click Button
-    const handleClick = async (event) => {
-      event.preventDefault(); // Prevent refresh page to not clear INPUT
-      await contract.methods.startProposalsRegistering().send({ from: accounts[0] });
-      window.location.reload(false);
-    };
-
   return (
-    <form>
-      <div>
-        <p>Click to set next Workflow : <button type="submit" onClick={handleClick} >{nextStep}</button></p>
-      </div>
-    </form>
+    <div>
+        <p>Workflow actuel : <button color="#841584">{desc}</button></p>
+    </div>
   );
 }
 
-export default ChangeWorkflow;
+export default DisplayWorkflow;

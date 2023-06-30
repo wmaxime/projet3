@@ -17,7 +17,7 @@ function AddVoters() {
       //console.log(results.isRegistered);
       //console.log("isVoter value : " + isVoter);
     })
-    .catch((err) => alert(err.message));
+    .catch((err) => alert(err));
   };
 
   // Display WorkflowStatus
@@ -29,10 +29,9 @@ function AddVoters() {
       }
     }
     getWorkflowStatus();
-  });
+  }, [accounts, contract, artifact]);
 
   const handleSubmit = event => {
-    //console.log('handleSubmit ran');
     event.preventDefault();
     // 👇️ clear all input values in the form
     event.target.reset();

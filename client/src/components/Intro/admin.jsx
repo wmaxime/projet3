@@ -2,14 +2,12 @@ import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 import AddVoters from "./addVoters";
 import GetVoters from "./GetVoters";
+import DisplayWorkflow from "./displayWorkflow";
 import ChangeWorkflow from "./changeWorkflow";
 
 function Admin() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
   const [workflowStatus, setWorkflowStatus] = useState(0);
-
-  
-  //await contract.methods.addVoter(accounts[0]).send({ from: accounts[0] });
 
   // Display WorkflowStatus
   useEffect(() => {
@@ -20,10 +18,8 @@ function Admin() {
           //console.log(workflowStatus);
         }
       }
-
       getWorkflowStatus();
-
-  });
+  }, [accounts, contract, artifact]);
 
   return (
     <div>
@@ -34,12 +30,14 @@ function Admin() {
       : ''
     }
 
+    <DisplayWorkflow />
     <ChangeWorkflow />
     
     {isOwner && workflowStatus === 0 // Affiche le menu AddVoters si isOwner et bon WorkflowStatus
       ? <AddVoters />
       : ''
     }
+    
     <GetVoters />
     </div>
   );
