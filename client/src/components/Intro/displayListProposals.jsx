@@ -1,31 +1,28 @@
 import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
-function DisplayListVoters() {
+function DisplayListProposals() {
   const { state: { contract } } = useEth();
-  const [ListVoters, setListVoters] = useState([]);
+  const [ListProposals, setListProposals] = useState([]);
 
   // Recuperation des events
   useEffect (() => {
-    async function getListVoters() {
+    async function getListProposals() {
       // recuperation des voters depuis les events
-      const listVotersEvent = await contract.getPastEvents(
-        "VoterRegistered",
+      const ListProposalsEvent = await contract.getPastEvents(
+        "ProposalRegistered",
         {
           fromBlock: 0,
           toBlock: "latest",
         }
       );
-      //console.log(listVotersEvent);
-      
       // creation du tableau avec MAP (Merci console.log)
-      let addrVoters = listVotersEvent.map((voter) => voter.returnValues.voterAddress);
-
+      let proposalsId = ListProposalsEvent.map((proposal) => proposal.returnValues.proposalId);
       // Register Events
-      setListVoters(addrVoters);
+      setListProposals(proposalsId);
     }
 
-    getListVoters();
+    getListProposals();
 
   }, [contract])
 
@@ -34,15 +31,15 @@ function DisplayListVoters() {
 
   return (
     <div>
-      
+  
        <center><table className="listeVoters">
             <thead>
               <tr>
-                <th class="th-titre">Nombre de voteurs inscrits : {ListVoters.length}</th>
+                <th class="th-titre">Propositions : {ListProposals.length}</th>
               </tr>
             </thead>
             <tbody>
-              {ListVoters.map((item) => (
+              {ListProposals.map((item) => (
                 <tr key={item}>
                   <td class="td-addr">{item}</td>
                 </tr>
@@ -50,9 +47,9 @@ function DisplayListVoters() {
             </tbody>
           </table>
         </center>
-      
+    
     </div>
   );
 }
 
-export default DisplayListVoters;
+export default DisplayListProposals;

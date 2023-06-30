@@ -5,6 +5,7 @@ import GetVoters from "./GetVoters";
 import DisplayWorkflow from "./displayWorkflow";
 import ChangeWorkflow from "./changeWorkflow";
 import DisplayListVoters from "./displayListVoters";
+import DisplayListProposals from "./displayListProposals";
 
 function Admin() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -40,7 +41,17 @@ function Admin() {
     }
     
     <GetVoters />
-    <DisplayListVoters />
+    
+    {workflowStatus < 2
+        ? <DisplayListVoters />
+        : ''
+    }
+    
+    {workflowStatus < 3
+      ? <DisplayListProposals />
+        : ''
+    }
+    
     </div>
   );
 }
