@@ -38,13 +38,13 @@ function DisplayListVoters() {
        <center><table className="listeVoters">
             <thead>
               <tr>
-                <th class="th-titre">Nombre de voteurs inscrits : {ListVoters.length}</th>
+                <th className="th-titre">Nombre de voteurs inscrits : {ListVoters.length}</th>
               </tr>
             </thead>
             <tbody>
               {ListVoters.map((item) => (
                 <tr key={item}>
-                  <td class="td-addr">{item}</td>
+                  <td className="td-addr">{item}</td>
                 </tr>
               ))}
             </tbody>

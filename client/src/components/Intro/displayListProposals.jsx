@@ -2,13 +2,13 @@ import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
 function DisplayListProposals() {
-  const { state: { contract } } = useEth();
+  const { state: { contract, accounts } } = useEth();
   const [ListProposals, setListProposals] = useState([]);
 
   // Recuperation des events
   useEffect (() => {
     async function getListProposals() {
-      // recuperation des voters depuis les events
+      // recuperation depuis les events
       const ListProposalsEvent = await contract.getPastEvents(
         "ProposalRegistered",
         {
@@ -16,38 +16,49 @@ function DisplayListProposals() {
           toBlock: "latest",
         }
       );
-      // creation du tableau avec MAP (Merci console.log)
+      // Recuperation des Proposals ID pour pourvoir requeter les Descriptions ensuites
       let proposalsId = ListProposalsEvent.map((proposal) => proposal.returnValues.proposalId);
-      // Register Events
-      setListProposals(proposalsId);
+      //setListProposalsID(proposalsId); // => ça ne marche pas de recuperer via useState ListProposalsID pour l'utiliser à l'intérieur de la fonction, il faut utiliser proposalsId
+      //console.log(proposalsId);
+      
+      let arrProposals = [];
+      for (const ID of proposalsId) { // Foreach ne marche pas aussi
+          const data = await contract.methods.getOneProposal(parseInt(ID)).call({ from: accounts[0] });
+          arrProposals.push({
+            id: ID,
+            description: data.description,
+            voteCount: data.voteCount,
+          });
+      }
+      
+      setListProposals(arrProposals);
     }
 
     getListProposals();
 
-  }, [contract])
+  }, [contract, accounts])
 
-//  console.log(ListVoters);
-//  console.log(ListVoters.length);
+  //console.log(ListProposals);
+  //console.log(ListProposals.length);
 
   return (
     <div>
-  
        <center><table className="listeVoters">
             <thead>
               <tr>
-                <th class="th-titre">Propositions : {ListProposals.length}</th>
+                <th className="th-titre" colSpan="2">Nombre de propositions : {ListProposals.length}</th>
               </tr>
             </thead>
             <tbody>
               {ListProposals.map((item) => (
-                <tr key={item}>
-                  <td class="td-addr">{item}</td>
+                <tr key={item.id}>
+                  <td className="td-addr">{item.id}</td>
+                  <td className="td-addr">{item.description}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </center>
-    
     </div>
   );
 }
