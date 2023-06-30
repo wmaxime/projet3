@@ -41,8 +41,8 @@ function AddProposal() {
           ? <p><font color="red">Vous avez déjà voter !!!</font></p>
           : ''
         }
-        </div>
-    </form>
+        </div><br></br>
+      </form>
     </div>
   );
 }

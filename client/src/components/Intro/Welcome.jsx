@@ -2,7 +2,7 @@ import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 import AddProposal from "./addProposal";
 import DisplayWorkflow from "./displayWorkflow";
-//import DisplayListProposals from "./displayListProposals";
+import DisplayListProposals from "./displayListProposals";
 
 function Welcome() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -36,7 +36,7 @@ function Welcome() {
   //console.log(workflowStatus);
 
   return (
-    <div>
+    <>
       <h1>👋 Welcome to the Voting Dapp</h1>
       {!isOwner
         ? <DisplayWorkflow />
@@ -53,11 +53,11 @@ function Welcome() {
       }
 
       {workflowStatus === 1
-        ? <AddProposal />
+        ? (<> <AddProposal />
+        <DisplayListProposals /> </>)
         : ''
       }
-
-    </div>
+    </>
   );
 }
 
