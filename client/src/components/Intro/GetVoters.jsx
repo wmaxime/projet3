@@ -6,13 +6,14 @@ function GetVoters() {
   const [address, setAddress] = useState();
   const [isVoter, setisVoter] = useState();
   const inputRef = useRef(null);
+  //const [ListVoters, setListVoters] = useState([]);
 
   //Set Value on Input Event
   const handleChange = event => {
     event.preventDefault();
     setAddress(event.target.value);
     setisVoter();
-    console.log("GetVoters : " + event.target.value);
+    //console.log("GetVoters : " + event.target.value);
   };
 
   const handleSubmit = event => {
@@ -33,18 +34,18 @@ function GetVoters() {
     .call({ from: accounts[0] })
     .then((results) => {
       setisVoter(results.isRegistered);
-      console.log(results.isRegistered);
-      console.log("isVoter value : " + isVoter);
+      //console.log("isVoter value : " + isVoter);
     })
-    .catch((err) => alert(err.message));
+    .catch((err) => alert(err));
   };
+
 
   return (
     <div><br></br>
       <form onSubmit={handleSubmit}>
         <p>Check if address is a registred Voter (Only Voters can check) :</p>
         <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} ref={inputRef}/> &emsp;
-        <button onClick={handleClick} type="submit">Check address</button>
+        <button onClick={handleClick} type="submit">Check address</button>&nbsp;
 
         {isVoter === true
           ? <p>Address is Voter : <font color="green"> {address} </font></p>
@@ -54,8 +55,8 @@ function GetVoters() {
           ? <p>Address is not Voter : <font color="red"> {address} </font></p>
           : ''
         }
-
       </form>
+      <br></br>
     </div>
   );
 }

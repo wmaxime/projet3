@@ -16,23 +16,8 @@ function Welcome() {
     updateUserAddress();
   }, [accounts]);
 
-  //let startAddr = userAddress.substring(0, 5);
-  //let endAddr = userAddress.substring(37);
   let shortAdd = (userAddress.substring(0, 5) + "..." + userAddress.substring(37));
-  //console.log(startAddr);
-  //console.log(endAddr);
   console.log(shortAdd);
-
-/*  useEffect(() => {
-    const setshorrtAdd = () => {
-       //setshorrtAdd(userAddress);
-       let startAddr = userAddress.substring(0, 5);
-       //let endAddr = userAddress.substring(37);
-       //let addr = startAddr + "...." + endAddr;
-       console.log(startAddr);    
-    }
-    setshorrtAdd();
-  }, [accounts]); */
 
   return (
     <div>
@@ -42,7 +27,7 @@ function Welcome() {
         :''
       }
       {contract 
-      ? <p> You are connected with this address : {shortAdd} </p>
+      ? <p> You are connected with this address : {accounts} </p>
       : <p> Veuillez vous connecter sur le bon reseau.</p>
       }
 

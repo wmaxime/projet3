@@ -55,7 +55,7 @@ function ChangeWorkflow() {
       
       default: break;
     }
-    window.location.reload(false);
+    window.location.reload(true);
   };
 
   return (

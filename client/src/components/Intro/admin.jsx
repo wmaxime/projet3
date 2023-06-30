@@ -4,6 +4,7 @@ import AddVoters from "./addVoters";
 import GetVoters from "./GetVoters";
 import DisplayWorkflow from "./displayWorkflow";
 import ChangeWorkflow from "./changeWorkflow";
+import DisplayListVoters from "./displayListVoters";
 
 function Admin() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -39,6 +40,7 @@ function Admin() {
     }
     
     <GetVoters />
+    <DisplayListVoters />
     </div>
   );
 }
