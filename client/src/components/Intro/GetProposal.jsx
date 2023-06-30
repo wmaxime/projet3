@@ -6,7 +6,7 @@ function GetProposal() {
   const [address, setAddress] = useState();
   const [isVoter, setisVoter] = useState();
   const inputRef = useRef(null);
-  const [ListVoters, setListVoters] = useState([]);
+  const [listProposals, setListProposals] = useState([]);
   const [openList, setOpenList] = useState("false");
 
   //Set Value on Input Event

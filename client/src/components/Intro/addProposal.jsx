@@ -27,7 +27,7 @@ function AddProposal() {
         .addProposal(proposal)
         .send({ from: accounts[0] })
         .catch((err) => alert(err))
-      //window.location.reload(false);
+      window.location.reload(true);
     };
     
   return (

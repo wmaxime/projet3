@@ -1,6 +1,6 @@
 import { EthProvider } from "./contexts/EthContext";
 import Intro from "./components/Intro/";
-import Voting from "./components/Voting";
+//import Voting from "./components/Voting";
 
 function App() {
   return (
@@ -9,8 +9,7 @@ function App() {
         <div className="container">
           <Intro />
           <hr />
-          <Voting />
-          <hr />
+
         </div>
       </div>
     </EthProvider>

@@ -11,6 +11,7 @@ function Admin() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
   const [workflowStatus, setWorkflowStatus] = useState(0);
 
+
   // Display WorkflowStatus
   useEffect(() => {
       async function getWorkflowStatus() {
@@ -25,33 +26,32 @@ function Admin() {
 
   return (
     <div>
-    {isOwner // Affiche le menu Admin si isOwner
-      ? <div>
-        <h1>Admin Only</h1>
-        </div>
-      : ''
-    }
+      {isOwner // Affiche le menu Admin si isOwner
+        ? <div>
+          <h1>Admin Only</h1>
+          </div>
+        : ''
+      }
 
-    <DisplayWorkflow />
-    <ChangeWorkflow />
+      <DisplayWorkflow />
+      <ChangeWorkflow />
+      
+      {isOwner && workflowStatus === 0 // Affiche le menu AddVoters si isOwner et bon WorkflowStatus
+        ? <AddVoters />
+        : ''
+      }
     
-    {isOwner && workflowStatus === 0 // Affiche le menu AddVoters si isOwner et bon WorkflowStatus
-      ? <AddVoters />
-      : ''
-    }
-    
-    <GetVoters />
-    
-    {workflowStatus < 2
+      <GetVoters />
+      
+      {workflowStatus < 2
         ? <DisplayListVoters />
         : ''
-    }
-    
-    {workflowStatus < 3
-      ? <DisplayListProposals />
+      }
+      
+      {workflowStatus < 3
+        ? <DisplayListProposals />
         : ''
-    }
-    
+      }
     </div>
   );
 }

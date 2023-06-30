@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import AddProposal from "./addProposal";
 import DisplayWorkflow from "./displayWorkflow";
 import DisplayListProposals from "./displayListProposals";
+import GetVoters from "./GetVoters";
+import VoteSession from "./voteSession";
 
 function Welcome() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -46,17 +48,24 @@ function Welcome() {
       ? <p> You are connected with this address : {shortAdd} </p>
       : <p> Veuillez vous connecter sur le bon reseau.</p>
       }
-
       {isOwner
         ? 'You are : Owner'
         : ''
       }
 
+<GetVoters />
+
       {workflowStatus === 1
         ? (<> <AddProposal />
-        <DisplayListProposals /> </>)
+          <DisplayListProposals /> </>)
         : ''
       }
+
+      {workflowStatus === 3
+        ? (<> <VoteSession /> <br></br>
+          <DisplayListProposals /> </>)
+        : ''
+      }    
     </>
   );
 }

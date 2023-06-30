@@ -1,8 +1,8 @@
 import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
-function AddVoters() {
-  const { state: { accounts, isOwner, contract, artifact } } = useEth();
+function VoteSession() {
+  const { state: { accounts, contract, artifact } } = useEth();
   const [workflowStatus, setWorkflowStatus] = useState(0);
   const [address, setAddress] = useState();
   const [isVoter, setisVoter] = useState();
@@ -100,21 +100,18 @@ function AddVoters() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-    {isOwner && workflowStatus === 0
-      ? <div>
-        <p>Register Voter : </p>
-        <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} /> &emsp;
+        <div>
+        <p>Voter pour un choix : </p>
+        <input type="text" size="50" placeholder="Choisir un ID" onChange={handleChange} /> &emsp;
         <button onClick={handleClick} type="submit">Add Voter address</button>
         {isVoter === true
           ? <p>Address is already Voter : <font color="red"> {address} </font></p>
           : ''
         }
         </div>
-      : ''
-    }
-    </form>
+      </form>
     </div>
   );
 }
 
-export default AddVoters;
+export default VoteSession;
