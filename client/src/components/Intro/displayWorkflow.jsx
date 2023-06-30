@@ -11,7 +11,7 @@ function DisplayWorkflow() {
     "Fin de l'enregistrement des propositions",
     "Ouverture des votes",
     "Fermeture des votes",
-    "Fin"
+    "Fin des haricots"
   ]
 
   // Display WorkflowStatus

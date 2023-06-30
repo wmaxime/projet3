@@ -11,7 +11,7 @@ function ChangeWorkflow() {
     "Fin de l'enregistrement des propositions",
     "Ouverture des votes",
     "Fermeture des votes",
-    "Fin"
+    "Résultats",
   ]
 
   // Display WorkflowStatus
@@ -29,17 +29,43 @@ function ChangeWorkflow() {
   //console.log(desc);
 
     // Set Value on Click Button
-    const handleClick = async (event) => {
-      event.preventDefault(); // Prevent refresh page to not clear INPUT
-      await contract.methods.startProposalsRegistering().send({ from: accounts[0] });
-      window.location.reload(false);
-    };
+  const handleClick = async (event) => {
+    //event.preventDefault(); // Prevent refresh page to not clear INPUT
+    switch (workflowStatus) {
+      case 0:
+        await contract.methods.startProposalsRegistering().send({ from: accounts[0] });
+        break;
+      
+      case 1:
+        await contract.methods.endProposalsRegistering().send({ from: accounts[0] });
+        break;
+
+      case 2:
+        await contract.methods.startVotingSession().send({ from: accounts[0] });
+        break;
+      
+      case 3:
+        await contract.methods.endVotingSession().send({ from: accounts[0] });
+        break;
+
+      case 4:
+        await contract.methods.tallyVotes().send({ from: accounts[0] });
+        console.log(workflowStatus)
+        break;
+      
+      default: break;
+    }
+    window.location.reload(false);
+  };
 
   return (
     <form>
-      <div>
-        <p>Click to set next Workflow : <button type="submit" onClick={handleClick} >{nextStep}</button></p>
-      </div>
+      {workflowStatus < 5
+        ? <div>
+          <p>Click to set next Workflow : <button type="submit" onClick={handleClick} >{nextStep}</button></p>
+        </div>
+        :''
+      }
     </form>
   );
 }
