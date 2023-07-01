@@ -24,7 +24,7 @@ function AddVoters() {
     }
 
     getListVoters();
-    console.log("Nombre de voters : " + nbVoters);
+    //console.log("Nombre de voters : " + nbVoters);
     if (nbVoters === 0) {
       //alert("Admin doit s'enregistrer en tant que Voter pour pouvoir vérifier les  !");
     };
@@ -38,8 +38,8 @@ function AddVoters() {
     .call({ from: accounts[0] })
     .then((results) => {
       setisVoter(results.isRegistered);
-      //console.log(results.isRegistered);
-      //console.log("isVoter value : " + isVoter);
+      console.log("checkIsVoter value : " + results.isRegistered);
+      console.log("isVoter value : " + isVoter);
     })
     .catch((err) => alert(err));
   };
@@ -68,7 +68,7 @@ function AddVoters() {
     if (nbVoters > 0) {
         checkIsVoter(event.target.value);
     }
-    setisVoter();
+    //setisVoter();
   };
 
     // Set Value on Click Button
@@ -80,9 +80,10 @@ function AddVoters() {
       }
       
       const newVoterAddr = address;
+      console.log("newVoterAddr value : " + address);
       
       if (nbVoters > 0) {
-        checkIsVoter(newVoterAddr);
+        //checkIsVoter(newVoterAddr);
       }
         if (isVoter === true)  {
           console.log("already resistred :" + address);

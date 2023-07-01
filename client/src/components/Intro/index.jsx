@@ -11,11 +11,11 @@ function Intro() {
       <Welcome />
       <hr />
       {isOwner
-      ? <Admin />
-      : ''
+        ? <Admin />
+        : ''
       }
       <hr />
-      <GetWinningProposal />
+<GetWinningProposal />
     </>
   );
 }
