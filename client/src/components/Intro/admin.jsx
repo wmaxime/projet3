@@ -52,6 +52,11 @@ function Admin() {
         ? <DisplayListProposals />
         : ''
       }
+
+      {workflowStatus < 6
+        ? <DisplayListProposals />
+        : ''
+      }
     </div>
   );
 }

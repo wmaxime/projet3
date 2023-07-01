@@ -2,11 +2,12 @@ import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 import AddProposal from "./addProposal";
 import DisplayWorkflow from "./displayWorkflow";
-import DisplayListProposals from "./displayListProposals";
+import DisplayListProposals from "./displayListProposals"; 
 import GetVoters from "./GetVoters";
 import VoteSession from "./voteSession";
 import NoticeNoArtifact from "./NoticeNoArtifact";
 import NoticeWrongNetwork from "./NoticeWrongNetwork";
+import DisplayWinningProposal from "./displayWinningProposal";
 
 function Welcome() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -24,7 +25,7 @@ function Welcome() {
         }        
     }
     updateUserAddress();
-    
+
     // refresh de page si changement de compte ou Network dans Metamask 
     if(window.ethereum) {
       window.ethereum.on('chainChanged', () => {
@@ -50,11 +51,13 @@ function Welcome() {
 
     async function checkVoterStatus() {
       let events = await contract.getPastEvents("VoterRegistered", { fromBlock: 0, toBlock: "latest" });
+      console.log("events : " + events);
+      console.log("Nb events : " + events.length);
       let voter = events.find((voter) => voter.returnValues.voterAddress === accounts[0]);
       //console.log(voter);
       if (voter) {
           let status = await contract.methods.getVoter(voter.returnValues.voterAddress).call({ from: accounts[0] });
-          console.log("status : " + status[1]); // isRegistered = 0, hasVoted = 1, votedProposalId = 2
+          console.log("status : " + status); // isRegistered = 0, hasVoted = 1, votedProposalId = 2
 
           if (status[0] === true) {
             setIsVoter(true);
@@ -67,12 +70,12 @@ function Welcome() {
 
     getWorkflowStatus();
     checkVoterStatus();
+
   }, [accounts, contract, artifact]);
 
-console.log(hasVoted);
+console.log("Acount hasVoted : " + hasVoted);
 
   return (
-    
     <>
       {!artifact ? <NoticeNoArtifact /> :
         !contract ? <NoticeWrongNetwork /> : ''
@@ -85,6 +88,7 @@ console.log(hasVoted);
       ? <p> You are connected with this address : {shortAdd} </p>
       : <p> Veuillez vous connecter sur le bon reseau.</p>
       }
+
       {isOwner
         ? 'You are : Owner' : ''
       }
@@ -103,6 +107,11 @@ console.log(hasVoted);
       {isVoter && workflowStatus === 3
         ? <VoteSession />
         : ''
+      }
+
+      {isVoter && workflowStatus === 5
+        ? <DisplayWinningProposal /> : ''
+
       }
 
     </>
