@@ -1,10 +1,14 @@
 import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect} from "react";
+import DisplayListProposals from "./displayListProposals";
 
 function VoteSession() {
   const { state: { accounts, contract } } = useEth();
   const [choice, setChoice] = useState();
   const [ListProposals, setListProposals] = useState([]);
+  const [isVoter, setIsVoter] = useState(false);
+  const [hasVoted, setHasVoted] = useState(false);
+  const [registeredChoice, setRegisteredChoice] = useState();
 
   // Recuperation des events
   useEffect (() => {
@@ -30,12 +34,32 @@ function VoteSession() {
             description: data.description,
             voteCount: data.voteCount,
           });
-      }
-      
+      }    
       setListProposals(arrProposals);
     }
 
+    async function checkVoterStatus() {
+      let events = await contract.getPastEvents("VoterRegistered", { fromBlock: 0, toBlock: "latest" });
+      let voter = events.find((voter) => voter.returnValues.voterAddress === accounts[0]);
+      //console.log(voter);
+      if (voter) {
+          let status = await contract.methods.getVoter(voter.returnValues.voterAddress).call({ from: accounts[0] });
+          console.log("status : " + status[1]); // isRegistered = 0, hasVoted = 1, votedProposalId = 2
+
+          if (status[0] === true) {
+            setIsVoter(true);
+          }
+          if (status[1] === true) {
+            setHasVoted(true);
+          }
+          if (status[2] > 0) {
+            setRegisteredChoice(status[2]);
+          }
+      }
+    }
+
     getListProposals();
+    checkVoterStatus();
 
   }, [contract, accounts])
 
@@ -66,6 +90,12 @@ function VoteSession() {
         alert("Please choose a proposal between 1 to " + ListProposals.length);
         return;
       }
+
+      if (hasVoted)
+      {
+        alert("You already voted !");
+        return;       
+      }
       console.log(choice);
       await contract.methods.setVote(choice).send({ from: accounts[0] });
       window.location.reload();
@@ -73,13 +103,23 @@ function VoteSession() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      {isVoter && !hasVoted
+      ? (<> <form onSubmit={handleSubmit}>
         <div>
         <p>Faite un choix : </p>
         <input type="text" size="50" placeholder="Choisir un ID" onChange={handleChange} /> &emsp;
         <button onClick={handleClick} type="submit">Voter</button>
         </div>
-      </form>
+      </form><br></br>
+      <DisplayListProposals /> </>)
+      : ''
+      }
+
+      {hasVoted
+        ? (<>  <p>Vous avez voté pour le choix : {registeredChoice}</p>
+                <DisplayListProposals /> </>)
+        : ''
+      }
     </div>
   );
 }
