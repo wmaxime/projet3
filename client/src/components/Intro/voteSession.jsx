@@ -1,59 +1,45 @@
 import useEth from "../../contexts/EthContext/useEth";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 
 function VoteSession() {
-  const { state: { accounts, contract, artifact } } = useEth();
-  const [workflowStatus, setWorkflowStatus] = useState(0);
-  const [address, setAddress] = useState();
-  const [isVoter, setisVoter] = useState();
-  const [nbVoters, setNbVoters] = useState(0);
+  const { state: { accounts, contract } } = useEth();
+  const [choice, setChoice] = useState();
+  const [ListProposals, setListProposals] = useState([]);
 
   // Recuperation des events
   useEffect (() => {
-    async function getListVoters() {
-      // recuperation des voters depuis les events
-      const listVotersEvent = await contract.getPastEvents(
-        "VoterRegistered",
+    async function getListProposals() {
+      // recuperation depuis les events
+      const ListProposalsEvent = await contract.getPastEvents(
+        "ProposalRegistered",
         {
           fromBlock: 0,
           toBlock: "latest",
         }
       );
-      //console.log(listVotersEvent.length);
-      setNbVoters(listVotersEvent.length);
-    }
-
-    getListVoters();
-    console.log("Nombre de voters : " + nbVoters);
-    if (nbVoters === 0) {
-      //alert("Admin doit s'enregistrer en tant que Voter pour pouvoir vérifier les  !");
-    };
-
-  }, [contract, nbVoters]);
-
-  // Check if isVoter
-  async function checkIsVoter(addr)  {
-    await contract.methods
-    .getVoter(addr)
-    .call({ from: accounts[0] })
-    .then((results) => {
-      setisVoter(results.isRegistered);
-      //console.log(results.isRegistered);
-      //console.log("isVoter value : " + isVoter);
-    })
-    .catch((err) => alert(err));
-  };
-
-  // Display WorkflowStatus
-  useEffect(() => {
-    async function getWorkflowStatus() {
-      if (artifact) {
-        const status = await contract.methods.workflowStatus().call({ from: accounts[0] });
-        setWorkflowStatus(parseInt(status));
+      // Recuperation des Proposals ID pour pourvoir requeter les Descriptions ensuites
+      let proposalsId = ListProposalsEvent.map((proposal) => proposal.returnValues.proposalId);
+      //setListProposalsID(proposalsId); // => ça ne marche pas de recuperer via useState ListProposalsID pour l'utiliser à l'intérieur de la fonction, il faut utiliser proposalsId
+      //console.log(proposalsId);
+      
+      let arrProposals = [];
+      for (const ID of proposalsId) { // Foreach ne marche pas aussi
+          const data = await contract.methods.getOneProposal(parseInt(ID)).call({ from: accounts[0] });
+          arrProposals.push({
+            id: ID,
+            description: data.description,
+            voteCount: data.voteCount,
+          });
       }
+      
+      setListProposals(arrProposals);
     }
-    getWorkflowStatus();
-  }, [accounts, contract, artifact]);
+
+    getListProposals();
+
+  }, [contract, accounts])
+
+  //console.log(ListProposals.length);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -63,51 +49,35 @@ function VoteSession() {
 
   //Set Value on Input Event
   const handleChange = event => {
-    setAddress(event.target.value);
-    console.log("Handle AddVoters : " + event.target.value);
-    if (nbVoters > 0) {
-        checkIsVoter(event.target.value);
-    }
-    setisVoter();
+    setChoice(event.target.value);
+    console.log("Choice : " + event.target.value);
   };
 
     // Set Value on Click Button
     const handleClick = async (event) => {
       event.preventDefault(); // Prevent refresh page to not clear INPUT
-      if (address === "") {
-        alert("Please enter an address");
+      if (choice === "" || !choice ) {
+        alert("Please choose a proposal");
         return;
       }
-      
-      const newVoterAddr = address;
-      
-      if (nbVoters > 0) {
-        checkIsVoter(newVoterAddr);
-      }
-        if (isVoter === true)  {
-          console.log("already resistred :" + address);
-          alert("Address already registered !");
-          return;
-        }
-        else
-        {
-          await contract.methods.addVoter(newVoterAddr).send({ from: accounts[0] });
-          window.location.reload(false);
-        };
 
+      if (choice > ListProposals.length)
+      {
+        alert("Please choose a proposal between 1 to " + ListProposals.length);
+        return;
+      }
+      console.log(choice);
+      await contract.methods.setVote(choice).send({ from: accounts[0] });
+      window.location.reload();
     };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-        <p>Voter pour un choix : </p>
+        <p>Faite un choix : </p>
         <input type="text" size="50" placeholder="Choisir un ID" onChange={handleChange} /> &emsp;
-        <button onClick={handleClick} type="submit">Add Voter address</button>
-        {isVoter === true
-          ? <p>Address is already Voter : <font color="red"> {address} </font></p>
-          : ''
-        }
+        <button onClick={handleClick} type="submit">Voter</button>
         </div>
       </form>
     </div>

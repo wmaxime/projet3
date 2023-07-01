@@ -62,10 +62,10 @@ function Welcome() {
       }
 
       {workflowStatus === 3
-        ? (<> <VoteSession /> <br></br>
+        ? (<> <VoteSession /><br></br>
           <DisplayListProposals /> </>)
         : ''
-      }    
+      }  
     </>
   );
 }
