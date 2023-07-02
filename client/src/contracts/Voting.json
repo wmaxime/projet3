@@ -20389,8 +20389,8 @@
         }
       },
       "links": {},
-      "address": "0x808E4abfA1Bc5Ab3aA318BF4CF11CA1C970E0E44",
-      "transactionHash": "0x3ca2d211ddb77ee5b73dd40be4ecb98cf1ce82eea64388196e424612df7020b9"
+      "address": "0x65b671bb77a06260E39B798e9E1789b6Fe53445E",
+      "transactionHash": "0x601c0dbc6debebf3c40e188d5c39a0bcd537c24b7997b00de041b3bdf2b1727c"
     },
     "1687883903014": {
       "events": {},
@@ -20634,7 +20634,7 @@
     }
   },
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-07-02T17:16:25.774Z",
+  "updatedAt": "2023-07-02T21:32:24.987Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "Contrat pour la réalisation d'un vote",
