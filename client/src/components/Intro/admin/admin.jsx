@@ -1,11 +1,11 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 import AddVoters from "./addVoters";
-import GetVoters from "./GetVoters";
-import ManageWorkflow from "./admin/manageWorkflow";
-import NextWorkflow from "./admin/nextWorkflow";
-import DisplayListVoters from "./displayListVoters";
-import DisplayListProposals from "./displayListProposals";
+import GetVoters from "../utils/GetVoters";
+import ManageWorkflow from "./manageWorkflow";
+import NextWorkflow from "./nextWorkflow";
+import DisplayListVoters from "../display/displayListVoters";
+import DisplayListProposals from "../display/displayListProposals";
 
 function Admin() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -53,7 +53,7 @@ function Admin() {
         : ''
       }
 
-      {workflowStatus > 6
+      {workflowStatus > 5
         ? <DisplayListProposals />
         : ''
       }

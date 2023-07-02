@@ -1,4 +1,4 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState } from "react";
 
 function DisplayIsVoter() {

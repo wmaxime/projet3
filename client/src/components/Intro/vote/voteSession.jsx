@@ -1,6 +1,6 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState, useEffect} from "react";
-import DisplayListProposals from "./displayListProposals";
+import DisplayListProposals from "../display/displayListProposals";
 
 function VoteSession() {
   const { state: { accounts, contract } } = useEth();
@@ -44,7 +44,7 @@ function VoteSession() {
       //console.log(voter);
       if (voter) {
           let status = await contract.methods.getVoter(voter.returnValues.voterAddress).call({ from: accounts[0] });
-          console.log("status : " + status[1]); // isRegistered = 0, hasVoted = 1, votedProposalId = 2
+          // console.log("status : " + status[1]); // isRegistered = 0, hasVoted = 1, votedProposalId = 2
 
           if (status[0] === true) {
             setIsVoter(true);
@@ -106,8 +106,8 @@ function VoteSession() {
       {isVoter && !hasVoted
       ? (<> <form onSubmit={handleSubmit}>
         <div>
-        <p>Faite un choix : </p>
-        <input type="text" size="50" placeholder="Choisir un ID" onChange={handleChange} /> &emsp;
+        <p>Votez pour votre modèle préféré : </p>
+        <input type="text" size="50" placeholder="Choisir un ID" onChange={handleChange} className="input-addr"/> &emsp;
         <button onClick={handleClick} type="submit">Voter</button>
         </div>
       </form><br></br>

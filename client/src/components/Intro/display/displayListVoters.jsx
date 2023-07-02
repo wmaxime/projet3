@@ -1,4 +1,4 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
 function DisplayListVoters() {
@@ -33,7 +33,7 @@ function DisplayListVoters() {
 //  console.log(ListVoters.length);
 
   return (
-    <div>
+    <div><hr className="hr_page"/>
       
        <center><table className="listeVoters">
             <thead>

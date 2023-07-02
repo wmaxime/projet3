@@ -1,4 +1,4 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
 function DisplayListProposals() {
@@ -42,11 +42,11 @@ function DisplayListProposals() {
   //console.log(ListProposals.length);
 
   return (
-    <div>
+    <div><hr className="hr_page"/>
        <center><table className="listeVoters">
             <thead>
               <tr>
-                <th className="th-titre" colSpan="2">Nombre de propositions : {ListProposals.length}</th>
+                <th className="th-titre" colSpan="2">Modèle proposé : {ListProposals.length}</th>
               </tr>
             </thead>
             <tbody>

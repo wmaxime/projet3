@@ -1,4 +1,4 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
 function DisplayWinningProposal() {
@@ -22,17 +22,17 @@ function DisplayWinningProposal() {
     getListProposals();
   }, [contract, accounts])
 
-  console.log("winProposalId value : " + winProposalId);
-  console.log("descriptWinningProposal value : " + descriptWinningProposal);
-  console.log("nbVote value : " + nbVote);
+  //console.log("winProposalId value : " + winProposalId);
+  //console.log("descriptWinningProposal value : " + descriptWinningProposal);
+  //console.log("nbVote value : " + nbVote);
 
   return (
-    <div>
-        <p>La victoire pour : {winProposalId} - {descriptWinningProposal}</p>
+    <div><hr className="hr_page"/>
+        <p>Le modèle préféré des propriétaires de Ferrari est : <font color="red" size="6">{descriptWinningProposal}</font></p>
         <center><table className="listeVoters">
           <thead>
             <tr>
-              <th className="th-titre" colspan="3">GAGNANT</th>
+              <th className="th-titre" colSpan="3">GAGNANT</th>
             </tr>
           </thead>
           <tbody>
@@ -49,6 +49,8 @@ function DisplayWinningProposal() {
           </tbody>
         </table>
         </center>
+        <p>Un tirage au sort des propriétaires ayant voté pour ce modèle sera effectué afin de reverser 75% des fonds récoltés <font size="1">(* Voir conditions)</font>.</p>
+        <p className="p-condition">* Désolé pas de fonction retrait dans le smart contract.</p>
     </div>
   );
 }

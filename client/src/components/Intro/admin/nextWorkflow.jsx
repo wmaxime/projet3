@@ -19,7 +19,7 @@ function NextWorkflow() {
     async function getWorkflowStatus() {
         const status = await contract.methods.workflowStatus().call({ from: accounts[0] });
           if (status) {
-            console.log("getWorkflowStatus value : " + status);
+            //console.log("getWorkflowStatus value : " + status);
             setWorkflowStatus(parseInt(status));           
           }
     }

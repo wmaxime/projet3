@@ -1,6 +1,6 @@
 import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
-import GetWorkflowNumber from "./getWorkflowNumber";
+import GetWorkflowNumber from "./utils/getWorkflowNumber";
 
 function Menu() {
     const { state: { accounts, isOwner, contract } } = useEth();
@@ -14,7 +14,7 @@ function Menu() {
         "Fin de l'enregistrement des propositions",
         "Ouverture des votes",
         "Fermeture des votes",
-        "Fin des haricots"
+        "Résultat des votes"
     ]
 
     const workflowDescription = description[GetWorkflowNumber() + 1];
@@ -46,14 +46,10 @@ function Menu() {
             //console.log("checkVoterStatus voter value : " + voter);
             if (voter) {
                 let status = await contract.methods.getVoter(voter.returnValues.voterAddress).call({ from: accounts[0] });
-                //console.log("event voter status value : " + status); // isRegistered = 0, hasVoted = 1, votedProposalId = 2
-      
+                //console.log("event voter status value : " + status); // isRegistered = 0, hasVoted = 1, votedProposalId = 2      
                 if (status[0] === true) {
                   setIsVoter(true);
                 }
-                //if (status[1] === true) {
-                //  setHasVoted(true);
-                //}
             }
         }
 
@@ -90,7 +86,7 @@ function Menu() {
         }
 
         const menuTitle = setUserTitle();
-        console.log("userTitle value : " + setUserTitle());
+        //console.log("userTitle value : " + setUserTitle());
 
   return (
     <>

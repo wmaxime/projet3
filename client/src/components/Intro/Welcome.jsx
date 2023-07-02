@@ -1,15 +1,15 @@
 import useEth from "../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 import Menu from "./menu";
-import AddProposal from "./addProposal";
-import DisplayListProposals from "./displayListProposals"; 
-import GetVoters from "./GetVoters";
-import VoteSession from "./voteSession";
+import AddProposal from "./vote/addProposal";
+import DisplayListProposals from "./display/displayListProposals"; 
+import GetVoters from "./utils/GetVoters";
+import VoteSession from "./vote/voteSession";
 //import NoticeNoArtifact from "./NoticeNoArtifact";
 //import NoticeWrongNetwork from "./NoticeWrongNetwork";
-import DisplayWinningProposal from "./displayWinningProposal";
+import DisplayWinningProposal from "./display/displayWinningProposal";
 import Logo from "./img/Logo.png";
-import MessageVisitor from "./messageVisitor";
+import MessageVisitor from "./display/messageVisitor";
 
 function Welcome() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -27,7 +27,7 @@ function Welcome() {
         }        
     }
     updateUserAddress();
-    console.log("userAddress value :" + userAddress);
+    //console.log("userAddress value :" + userAddress);
 
     // refresh de page si changement de compte ou Network dans Metamask 
     if(window.ethereum) {
@@ -77,7 +77,8 @@ function Welcome() {
   }, [accounts, contract, artifact]);
 
 console.log("Acount hasVoted : " + hasVoted);
-console.log(Logo);
+//console.log(Logo);
+
   return (
     <>
 
@@ -91,11 +92,6 @@ console.log(Logo);
       {!contract 
         ? <p className="p_alert"> Veuillez vous connecter sur le bon reseau Metamask !</p>
         : ''
-      }
-
-      {isVoter && !isOwner
-        ? <GetVoters />
-        : ""
       }
 
       {!isVoter && !isOwner
@@ -118,6 +114,10 @@ console.log(Logo);
         ? <DisplayWinningProposal /> : ''
       }
 
+      {isVoter && !isOwner
+        ? <GetVoters />
+        : ""
+      }
     </>
   );
 }

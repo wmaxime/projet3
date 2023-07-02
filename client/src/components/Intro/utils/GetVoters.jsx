@@ -1,4 +1,4 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState, useRef } from "react";
 
 function GetVoters() {
@@ -11,9 +11,8 @@ function GetVoters() {
   //Set Value on Input Event
   const handleChange = event => {
     event.preventDefault();
-    setAddress(event.target.value);
-    setisVoter();
-    //console.log("GetVoters : " + event.target.value);
+    const inputValue = event.target.value;
+    setAddress(inputValue);
   };
 
   const handleSubmit = event => {
@@ -28,7 +27,11 @@ function GetVoters() {
       alert("Please enter an address");
       return;
     }
-
+    if (address.length > 42 || address.length < 42) {
+      alert("L''adresse doit faire 42 caractères !");
+      window.location.reload(false);
+      return;
+    }
     await contract.methods
     .getVoter(address)
     .call({ from: accounts[0] })
@@ -43,16 +46,16 @@ function GetVoters() {
   return (
     <div><hr className="hr_page"/>
       <form onSubmit={handleSubmit}>
-        <p>Check if address is a registred Voter (Only Voters can check) :</p>
-        <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} ref={inputRef}/> &emsp;
-        <button onClick={handleClick} type="submit">Check address</button>&nbsp;
+        <p><b>Vérification d'une adresse (Seulement les voteurs peuvent vérifier) :</b></p>
+        <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} ref={inputRef} className="input-addr"/> &emsp;
+        <button onClick={handleClick} type="submit">Vérification</button>&nbsp;
 
         {isVoter === true
-          ? <p>Address is Voter : <font color="green"> {address} </font></p>
+          ? <p>L'adresse est déjà enregistré : <font color="green"> {address} </font></p>
           : ''
         }
         {isVoter === false
-          ? <p>Address is not Voter : <font color="red"> {address} </font></p>
+          ? <p>L'adresse n'est pas enregistré  : <font color="red"> {address} </font></p>
           : ''
         }
       </form>

@@ -1,4 +1,4 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
 function AddVoters() {
@@ -63,26 +63,29 @@ function AddVoters() {
     const handleClick = async (event) => {
       event.preventDefault(); // Prevent refresh page to not clear INPUT
       if (address === "") {
-        alert("Please enter an address");
+        alert("Please enter an address !");
         return;
       }
-      
+      if (address.length > 42 || address.length < 42) {
+        alert("L''adresse doit faire 42 caractères !");
+        window.location.reload(false);
+        return;
+      }
+
       const newVoterAddr = address;
       console.log("newVoterAddr value : " + address);
       
       if (nbVoters > 0) {
         //checkIsVoter(newVoterAddr);
       }
-        if (isVoter === true)  {
+      if (isVoter === true)  {
           console.log("already resistred :" + address);
           alert("Address already registered !");
           return;
-        }
-        else
-        {
-          await contract.methods.addVoter(newVoterAddr).send({ from: accounts[0] });
-          window.location.reload(false);
-        };
+      }
+
+      await contract.methods.addVoter(newVoterAddr).send({ from: accounts[0] });
+      window.location.reload(false);
 
     };
 
@@ -93,10 +96,10 @@ function AddVoters() {
         <p><b>Enregistrer un propriétaire de Ferrari : </b></p>
         <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} className="input-addr"/> &emsp;
         <button onClick={handleClick} type="submit">Ajouter</button>
-        {isVoter === true
+        {/* {isVoter === true
           ? <p>Address is already Voter : <font color="red"> {address} </font></p>
           : ''
-        }
+        } */}
         </div>
     </form>
     </div>

@@ -1,4 +1,4 @@
-import useEth from "../../contexts/EthContext/useEth";
+import useEth from "../../../contexts/EthContext/useEth";
 import { useState, useEffect } from "react";
 
 function GetWorkflowNumber() {
@@ -16,7 +16,7 @@ function GetWorkflowNumber() {
     getWorkflowStatus();
   }, [accounts, contract, artifact]);
 
-  console.log("Etape : " + workflowStatus);
+  //console.log("Etape : " + workflowStatus);
 
   return ( workflowStatus );
 }
