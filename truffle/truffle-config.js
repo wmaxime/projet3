@@ -12,17 +12,17 @@ module.exports = {
       },
   
       goerli:{
-      provider : function() {return new HDWalletProvider({mnemonic:{phrase:`${process.env.SEED}`},providerOrUrl:`https://goerli.infura.io/v3/${process.env.INFURA_ID}`})},
+      provider : function() {return new HDWalletProvider({mnemonic:{phrase:`${process.env.MNEMONIC}`},providerOrUrl:`https://goerli.infura.io/v3/${process.env.INFURA_ID}`})},
       network_id:5,
       },
   
       sepolia:{
-        provider : function() {return new HDWalletProvider({mnemonic:{phrase:`${process.env.SEED}`},providerOrUrl:`https://sepolia.infura.io/v3/${process.env.SEPOLIA_ID}`})},
+        provider : function() {return new HDWalletProvider({mnemonic:{phrase:`${process.env.MNEMONIC}`},providerOrUrl:`https://sepolia.infura.io/v3/${process.env.SEPOLIA_ID}`})},
         network_id:11155111,
         },
   
       mumbai:{
-      provider : function() {return new HDWalletProvider({mnemonic:{phrase:`${process.env.SEED}`},providerOrUrl:`https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_ID}`})},
+      provider : function() {return new HDWalletProvider({mnemonic:{phrase:`${process.env.MNEMONIC}`},providerOrUrl:`https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_ID}`})},
       network_id:80001,
       },
   },
