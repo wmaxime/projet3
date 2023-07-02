@@ -114,9 +114,8 @@ console.log(Logo);
         : ''
       }
 
-      {isVoter && workflowStatus === 5
+      { isVoter && workflowStatus === 5
         ? <DisplayWinningProposal /> : ''
-
       }
 
     </>

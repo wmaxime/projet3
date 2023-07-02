@@ -216,13 +216,16 @@ hr {
   border-radius: 8px; 
   border-spacing: 5;
   background: red;
-  
 }
 
 .table_workflow th {
   border-bottom: 1px solid red;
   padding: 10px;
 }
+
+.table_workflow td:not(:last-child) {
+  border-right: 1px solid white;
+ }
 
 .table_workflowCell {
   width: 20%;
@@ -232,6 +235,46 @@ hr {
   font-size:10px;
 }
 
-.table_workflow td:not(:last-child) {
-  border-right: 1px solid white;
- }
+.table_workflowCell td:hover::before{
+  background: red;
+}
+.table_workflowCell td:hover::after{
+  background: yellow;
+}
+
+.table_select {
+  width: 20%;
+  background: yellow;
+  color: black;
+  text-align:center;
+  font-size:10px;
+  border-radius: 8px;
+}
+
+.table_status {
+  table-layout: fixed;
+  border: 1px solid red;
+  border-radius: 8px; 
+  border-spacing: 5;
+  background: yellow;
+  text-align:center;
+  font-size:16px;
+  width: 30%;
+}
+
+.input-addr {
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  transition: 1s;
+}
+
+.hr_page {
+  margin: 1rem 0;
+  width: 50%;
+  color: black;
+  margin-left: 25%;
+  height: 2px;
+  border-width:2px;
+  color:gray;
+  background-color:gray;
+}

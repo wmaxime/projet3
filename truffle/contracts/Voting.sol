@@ -129,7 +129,7 @@ contract Voting is Ownable {
 
         if (proposalsArray[_id].voteCount > previousVoteCount) {
             winningProposalID = _id;
-            proposalsArray[previousWinnerID].voteCount = previousVoteCount - 1;
+            //proposalsArray[previousWinnerID].voteCount = previousVoteCount - 1;
         }
 
         emit Voted(msg.sender, _id);

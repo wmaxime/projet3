@@ -41,7 +41,7 @@ function GetVoters() {
 
 
   return (
-    <div><br></br>
+    <div><hr className="hr_page"/>
       <form onSubmit={handleSubmit}>
         <p>Check if address is a registred Voter (Only Voters can check) :</p>
         <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} ref={inputRef}/> &emsp;
