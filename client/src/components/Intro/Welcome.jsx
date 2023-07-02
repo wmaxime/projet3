@@ -9,6 +9,7 @@ import VoteSession from "./voteSession";
 //import NoticeWrongNetwork from "./NoticeWrongNetwork";
 import DisplayWinningProposal from "./displayWinningProposal";
 import Logo from "./img/Logo.png";
+import MessageVisitor from "./messageVisitor";
 
 function Welcome() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -98,7 +99,7 @@ console.log(Logo);
       }
 
       {!isVoter && !isOwner
-        ? "Welcome Guest"
+        ? <MessageVisitor />
         : ''
       }
 

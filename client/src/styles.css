@@ -208,3 +208,30 @@ hr {
   text-align:center;
   font-size:13px;
 }
+
+.table_workflow {
+  width: 80%;
+  table-layout: fixed;
+  border: 1px solid red;
+  border-radius: 8px; 
+  border-spacing: 5;
+  background: red;
+  
+}
+
+.table_workflow th {
+  border-bottom: 1px solid red;
+  padding: 10px;
+}
+
+.table_workflowCell {
+  width: 20%;
+  /* background: red; */
+  color: white;
+  text-align:center;
+  font-size:10px;
+}
+
+.table_workflow td:not(:last-child) {
+  border-right: 1px solid white;
+ }

@@ -13,9 +13,9 @@ function DisplayWorkflow() {
     "Fermeture des votes",
     "Fin des haricots"
   ]
-
-  // Display WorkflowStatus
+  
   useEffect(() => {
+    // Display WorkflowStatus
     async function getWorkflowStatus() {
       if (artifact) {
         const status = await contract.methods.workflowStatus().call({ from: accounts[0] });

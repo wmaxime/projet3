@@ -64,7 +64,7 @@ function Menu() {
     // Definition de la short Address
     const shortAdd = (userAddress.substring(0, 5) + "....." + userAddress.substring(37));
 
-        // Definition du titre
+     /*   // Definition du titre
         if (isOwner) {
             //setUserTitle("Admin");
             let menuTitle = "Admin";
@@ -72,7 +72,7 @@ function Menu() {
         if (isVoter) {
             //setUserTitle("Voter");
             let menuTitle = "Voter";
-        }
+        } */
 
 
         function setUserTitle() {
@@ -80,11 +80,11 @@ function Menu() {
             if (!isVoter && !isOwner) {
                 title ="Visitor";
             }
-            if (isOwner) {
-                title ="Admin";
-            }
             if (isVoter) {
                 title ="Voteur";
+            }
+            if (isOwner) {
+                title ="Admin";
             }
             return title;
         }
