@@ -176,6 +176,7 @@ hr {
 }
 .listeVoters .td-addr {
   background-color:#c9d4f5;
+  text-align: center;
 }
 
 .p_alert {
