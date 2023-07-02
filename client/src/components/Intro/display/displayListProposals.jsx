@@ -46,7 +46,7 @@ function DisplayListProposals() {
        <center><table className="listeVoters">
             <thead>
               <tr>
-                <th className="th-titre" colSpan="2">Modèle proposé : {ListProposals.length}</th>
+                <th className="th-titre" colSpan="2">Modèles proposés :</th>
               </tr>
             </thead>
             <tbody>

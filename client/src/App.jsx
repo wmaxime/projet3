@@ -1,6 +1,5 @@
 import { EthProvider } from "./contexts/EthContext";
 import Intro from "./components/Intro/";
-//import Voting from "./components/Voting";
 
 function App() {
   return (
@@ -8,7 +7,6 @@ function App() {
       <div id="App">
         <div className="container">
           <Intro />
-
         </div>
       </div>
     </EthProvider>

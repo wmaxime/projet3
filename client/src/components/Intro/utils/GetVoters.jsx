@@ -46,7 +46,7 @@ function GetVoters() {
   return (
     <div><hr className="hr_page"/>
       <form onSubmit={handleSubmit}>
-        <p><b>Vérification d'une adresse (Seulement les voteurs peuvent vérifier) :</b></p>
+        <p><b>Vérification d'une adresse (Seulement les participants peuvent vérifier) :</b></p>
         <input type="text" size="50" placeholder="Example : 0xABCDE123456..." onChange={handleChange} ref={inputRef} className="input-addr"/> &emsp;
         <button onClick={handleClick} type="submit">Vérification</button>&nbsp;
 

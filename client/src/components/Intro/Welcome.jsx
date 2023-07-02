@@ -5,11 +5,12 @@ import AddProposal from "./vote/addProposal";
 import DisplayListProposals from "./display/displayListProposals"; 
 import GetVoters from "./utils/GetVoters";
 import VoteSession from "./vote/voteSession";
-//import NoticeNoArtifact from "./NoticeNoArtifact";
-//import NoticeWrongNetwork from "./NoticeWrongNetwork";
 import DisplayWinningProposal from "./display/displayWinningProposal";
 import Logo from "./img/Logo.png";
 import MessageVisitor from "./display/messageVisitor";
+import MessageAccueil from "./display/messageAccueil";
+import MessageAttente from "./display/messageAttente";
+import MessageAttenteResultat from "./display/messageAttenteResultat"
 
 function Welcome() {
   const { state: { accounts, isOwner, contract, artifact } } = useEth();
@@ -17,7 +18,6 @@ function Welcome() {
   const [workflowStatus, setWorkflowStatus] = useState(0);
   const [isVoter, setIsVoter] = useState(false);
   const [hasVoted, setHasVoted] = useState(false);
-  //const [shorrtAdd, setshorrtAdd] = useState();
 
   // calcul short address to display
   useEffect(() => {
@@ -77,11 +77,9 @@ function Welcome() {
   }, [accounts, contract, artifact]);
 
 console.log("Acount hasVoted : " + hasVoted);
-//console.log(Logo);
 
   return (
     <>
-
       <center><h1><img src={Logo} alt="Logo" width="18"></img> Election de la plus belle Ferrari</h1></center>
       <Menu />
 
@@ -99,14 +97,29 @@ console.log("Acount hasVoted : " + hasVoted);
         : ''
       }
 
+      {isVoter && workflowStatus === 0
+        ? (<> <MessageAccueil /> </>)
+        : ''
+      }
+
       {isVoter && workflowStatus === 1
         ? (<> <AddProposal />
           <DisplayListProposals /> </>)
         : ''
       }
 
+      {isVoter && workflowStatus === 2
+        ? (<> <MessageAttente /> </>)
+        : ''
+      }
+
       {isVoter && workflowStatus === 3
         ? <VoteSession />
+        : ''
+      }
+
+      {isVoter && workflowStatus === 4
+        ? <MessageAttenteResultat />
         : ''
       }
 

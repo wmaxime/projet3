@@ -10,7 +10,7 @@ function Menu() {
     const description = [
         "",
         "Inscription des voteurs en cours...",
-        "Enregistrement des propositions",
+        "Enregistrement des propositions...",
         "Fin de l'enregistrement des propositions",
         "Ouverture des votes",
         "Fermeture des votes",
@@ -60,37 +60,25 @@ function Menu() {
     // Definition de la short Address
     const shortAdd = (userAddress.substring(0, 5) + "....." + userAddress.substring(37));
 
-     /*   // Definition du titre
-        if (isOwner) {
-            //setUserTitle("Admin");
-            let menuTitle = "Admin";
+    function setUserTitle() {
+        let title = "";
+        if (!isVoter && !isOwner) {
+             title ="Visitor";
         }
         if (isVoter) {
-            //setUserTitle("Voter");
-            let menuTitle = "Voter";
-        } */
-
-
-        function setUserTitle() {
-            let title = "";
-            if (!isVoter && !isOwner) {
-                title ="Visitor";
-            }
-            if (isVoter) {
-                title ="Voteur";
-            }
-            if (isOwner) {
-                title ="Admin";
-            }
-            return title;
+            title ="Voteur";
         }
+        if (isOwner) {
+           title ="Admin";
+        }
+        return title;
+    }
 
         const menuTitle = setUserTitle();
         //console.log("userTitle value : " + setUserTitle());
 
   return (
     <>
-
         <table className="menu">
         <colgroup>
         <col className="menu_left" />
@@ -105,7 +93,6 @@ function Menu() {
         </tr>
         </thead>
         </table>
-
     </>
   );
 }

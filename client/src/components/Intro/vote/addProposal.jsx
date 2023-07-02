@@ -38,7 +38,7 @@ function AddProposal() {
         <input type="text" size="50" onChange={handleChange} className="input-addr"/> &emsp;
         <button onClick={handleClick} type="submit">Valider</button>
         {isVoter === true
-          ? <p><font color="red">Vous avez déjà voter !!!</font></p>
+          ? <p><font color="red">Vous avez déjà voté !!!</font></p>
           : ''
         }
         </div><br></br>

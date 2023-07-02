@@ -42,21 +42,13 @@ function Admin() {
       }
     
       <GetVoters />
-      
-      {workflowStatus < 2
-        ? <DisplayListVoters />
-        : ''
-      }
-      
-      {workflowStatus < 3
-        ? <DisplayListProposals />
-        : ''
-      }
+      <DisplayListVoters />
 
-      {workflowStatus > 5
+      {workflowStatus < 6
         ? <DisplayListProposals />
         : ''
       }
+      <p></p>
     </div>
   );
 }
