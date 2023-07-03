@@ -19,7 +19,7 @@ Nos Vidéos de démo :
 
 Notre DAPP en live (Vercel ) : https://projet3-wine.vercel.app/
 
-    => Pré-requis : utiliser un navigateur avec Metmask sinon page blanche
+    => Pré-requis : utiliser un navigateur avec le plugin Metamask sinon page blanche
     => Merci @Igor pour nous avoir indiquer les bugs rencontrés lors du déploiement de projets "OUTPUT DIRECTORY: buil" => OVERRIDE
 
 Contrat Goerli : https://goerli.etherscan.io/address/0xF67Ce2BA06B904DC72C224D10dC51176117d66d7
@@ -33,7 +33,7 @@ Contrat Goerli : https://goerli.etherscan.io/address/0xF67Ce2BA06B904DC72C224D10
 * Web3.js v1.10.0
 * Truffle Box React => Installation : truffle unbox react
 
- * Vercel : pour la publication de la Dapp via Github
+ * Vercel (https://vercel.com/) : pour la publication de la Dapp via Github
  * Loom (https://www.loom.com/) pour les vidéos de démo
  * Blockhain network de test : GOERLI
 
@@ -58,7 +58,7 @@ Nous avons modifié/ajouté :
  - remonter les composanst dans une architecture moins profonde => simplifier l'architecture des dossiers et fichiers
  - ajouter des effets aux différents boutons, des images, un background...
 
-## Spécifications
+# Spécifications
 ## Votre Dapp doit permettre : 
 
 * l’enregistrement d’une liste blanche d'électeurs.
@@ -71,5 +71,5 @@ Nous avons modifié/ajouté :
 * à l'administrateur de comptabiliser les votes.
 * à tout le monde de consulter le résultat.
 
-### NOTRE PROJET
+
 
