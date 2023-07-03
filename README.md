@@ -2,7 +2,7 @@
 
 La VotingBox est une application décentralisée (DAPP) qui permet de voter pour élire le plus beau modèle de Ferrari.
 
-Pour être ajouter à la whitelist, il faut envoyer, au propriétaire du contrat, un certains montant d'ETH correspondand au code du concours.
+Pour être ajouter à la whitelist, il faut envoyer, au propriétaire du contrat, un certains montant d'ETH correspondant au code du concours.
 
 Le propriétaire reçoit le montant correspondant au code du concours et rajoute l'adresse de la personne qui a envoyé les fonds à la whiteliste.
 
@@ -20,7 +20,7 @@ Nos Vidéos de démo :
 Notre DAPP en live (Vercel ) : https://projet3-wine.vercel.app/
 
     => Pré-requis : utiliser un navigateur avec le plugin Metamask sinon page blanche
-    => Merci @Igor pour nous avoir indiquer les bugs rencontrés lors du déploiement de projets "OUTPUT DIRECTORY: buil" => OVERRIDE
+    => Merci @Igor pour nous avoir indiquer les bugs rencontrés dans [Vercel](https://vercel.com/) lors du déploiement de projets "OUTPUT DIRECTORY: buil" => OVERRIDE
 
 Contrat Goerli : https://goerli.etherscan.io/address/0xF67Ce2BA06B904DC72C224D10dC51176117d66d7
 
@@ -31,7 +31,7 @@ Contrat Goerli : https://goerli.etherscan.io/address/0xF67Ce2BA06B904DC72C224D10
 * Solidity v0.5.16
 * Node v16.16.0
 * Web3.js v1.10.0
-* Truffle Box React => Installation : truffle unbox react
+* Truffle Box React (All in One) => Installation : truffle unbox react
 
  * Vercel (https://vercel.com/) : pour la publication de la Dapp via Github
  * Loom (https://www.loom.com/) pour les vidéos de démo
