@@ -12,7 +12,10 @@ Un tirage au sort est effectué parmi ceux qui ont élu le plus beau modèle et 
 
 # Publication
 
-Nos Vidéos de démo : URL LINK EN COURS
+Nos Vidéos de démo :
+- Full (Maxime) : https://www.loom.com/share/ec24a62f6f3f44208c2a376726ce11b9?sid=d05e3338-d264-4e2c-809a-f9a053eb3792
+- Partie 1 (Charly) : https://www.loom.com/share/d59dab984b0a4e82a6a8c95d7b6c1a0b?sid=b7c8901e-a25b-4d3f-b81d-a04ef4ba8de4
+- Partie 2 (Cgarly) : https://www.loom.com/share/a42ec549b1bf4706ac03181f12360272?sid=8f7b9672-6dd4-4131-8108-0756ff9da10f
 
 Notre DAPP en live (Vercel ) : https://projet3-wine.vercel.app/
 
@@ -36,23 +39,24 @@ Contrat Goerli : https://goerli.etherscan.io/address/0xF67Ce2BA06B904DC72C224D10
 
 # Choix des technologies : 
 
-Nous avons choisi la Truffle Box car : 
+Nous avons choisi la Truffle Box React car : 
 - c'est l'outil qui est abordé dans les cours en ligne
 - le plus simple à utiliser pour nous
 - nous n'avons pas eu le temps à nous consacrer à utiliser Hardhat
 
-# Modifications du ontrat Voting.sol :
+# Modifications du contrat Voting.sol :
 
-Nous avons modifié :
+Nous avons modifié/ajouté :
  - le contrat pour prendre en compte la faille DOS dans la fonction tallyVotes() (Boucle)
  - la fonction getOneProposal() pour permettre à tout le monde de voir le résultat en fin de vote (Voir spécifications du projet ci-dessous)
+ - les NatSpec
 
  # Reste à faire :
 
  - dans le tableau de la liste des Voteurs, une colonne hasVoted (Permet de cloturer les votes si besoin)
  - dans le tableau de la liste des Propositions, un colonne avec le nombre de votes (voteCount)
  - remonter les composanst dans une architecture moins profonde => simplifier l'architecture des dossiers et fichiers
- - ajouter des effets aux différents bouton, du graphisme...
+ - ajouter des effets aux différents boutons, des images, un background...
 
 ## Spécifications
 ## Votre Dapp doit permettre : 
