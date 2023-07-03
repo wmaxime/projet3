@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.20;
+pragma solidity 0.8.18;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 
@@ -96,8 +96,9 @@ contract Voting is Ownable {
     /**
     * @dev Renvoie le nombre de propositions.
     * @return uint le nombre de propositions
+    * @dev Modification pour permettre à tout le monde de voir le RESULTAT => Contrainte du Projet 3 => on enleve : onlyVoters
      */
-    function getOneProposal(uint _id) external onlyVoters view returns (Proposal memory) {
+    function getOneProposal(uint _id) external view returns (Proposal memory) {
         return proposalsArray[_id];
     }
 

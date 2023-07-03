@@ -92,7 +92,7 @@ console.log("Acount hasVoted : " + hasVoted);
         : ''
       }
 
-      {!isVoter && !isOwner
+      {!isVoter && !isOwner && workflowStatus === 0
         ? <MessageVisitor />
         : ''
       }
@@ -123,7 +123,7 @@ console.log("Acount hasVoted : " + hasVoted);
         : ''
       }
 
-      { isVoter && workflowStatus === 5
+      { workflowStatus === 5
         ? <DisplayWinningProposal /> : ''
       }
 
