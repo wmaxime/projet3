@@ -15,8 +15,11 @@ Un tirage au sort est effectué parmi ceux qui ont élu le plus beau modèle et 
 Nos Vidéos de démo : URL LINK EN COURS
 
 Notre DAPP en live (Vercel ) : https://projet3-wine.vercel.app/
+
     => Pré-requis : utiliser un navigateur avec Metmask sinon page blanche
     => Merci @Igor pour nous avoir indiquer les bugs rencontrés lors du déploiement de projets "OUTPUT DIRECTORY: buil" => OVERRIDE
+
+Contrat Goerli : https://goerli.etherscan.io/address/0xF67Ce2BA06B904DC72C224D10dC51176117d66d7
 
 # Outils utilisés : 
 
