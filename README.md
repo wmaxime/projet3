@@ -1,10 +1,55 @@
-# Projet - Système de vote 3
+# Projet - Système de vote 3 : Binome Charly et Maxime
 
-Oui oui, nous allons repartir du défi “Système de vote” #2 ! 
+La VotingBox est une application décentralisée (DAPP) qui permet de voter pour élire le plus beau modèle de Ferrari.
 
-Alors depuis, vous avez vu la partie sécurité des smart contracts ainsi que la partie DApp. 
+Pour être ajouter à la whitelist, il faut envoyer, au propriétaire du contrat, un certains montant d'ETH correspondand au code du concours.
+Le propriétaire recçoit le montant correspondant au code du concours et rajoute l'adresse de la personne qui a envoyé les fonds à la whiteliste.
+La whiteliste vote et élit le plus beau modèle.
+Un tirage au sort est effectué parmi ceux qui ont élu le plus beau modèle et le gagnant reçoit 75% des ETH reçus pour participer à ce vote.
 
-Vous en doutez certainement, à ce stade vous allez revoir la sécurité et l’optimisation de votre smart contract et créer une DApp qui répond aux spécifications citées ci-dessous et déployer votre DApp sur Heroku et Github Pages, comme vu dans le chapitre 4.
+**********************************************************************************************************************************************
+
+Nos Vidéos de démo : URL LINK EN COURS
+
+Notre DAPP en live (Vercel ) : https://projet3-wine.vercel.app/
+
+    => Pré-requis : utiliser un navigateur avec Metmask sinon page blanche
+    => Merci @Igor pour nous avoir indiquer les bugs rencontrés lors du déploiement de projets "OUTPUT DIRECTORY: buil" => OVERRIDE
+
+**********************************************************************************************************************************************
+
+# Outils utilisés : 
+
+* Truffle v5.9.2
+* Ganache v7.8.0
+* Solidity v0.5.16
+* Node v16.16.0
+* Web3.js v1.10.0
+* Truffle Box React => Installation : truffle unbox react
+
+ * Vercel : pour la publication de la Dapp via Github
+ * Loom (https://www.loom.com/) pour les vidéos de démo
+ * Blockhain network de test : GOERLI
+
+# Choix des technologies : 
+
+Nous avons choisi la Truffle Box car : 
+- c'est l'outil qui est abordé dans les cours en ligne
+- le plus simple à utiliser pour nous
+- nous n'avons pas eu le temps à nous consacrer à utiliser Hardhat
+
+# Modifications du ontrat Voting.sol :
+
+Nous avons modifié :
+ - le contrat pour prendre en compte la faille DOS dans la fonction tallyVotes() (Boucle)
+ - la fonction getOneProposal() pour permettre à tout le monde de voir le résultat en fin de vote (Voir spécifications du projet ci-dessous)
+
+ # Reste à faire :
+
+ - dans le tableau de la liste des Voteurs, une colonne hasVoted (Permet de cloturer les votes si besoin)
+ - dans le tableau de la liste des Propositions, un colonne avec le nombre de votes (voteCount)
+ - remonter les composanst dans une architecture moins profonde
+ - ajouter des effets aux différents bouton, du graphisme...
 
 ## Spécifications
 ## Votre Dapp doit permettre : 
@@ -19,16 +64,5 @@ Vous en doutez certainement, à ce stade vous allez revoir la sécurité et l’
 * à l'administrateur de comptabiliser les votes.
 * à tout le monde de consulter le résultat.
 
-## Les recommandations et exigences
-
-* Votre code doit être optimal.
-* Votre Dapp doit être sécurisée.
-* Vous devez utiliser la box react de Truffle.
-
-**********************************************************************************************************************************************
-
-Notre Vidéo de démo : URL LINK
-
-Notre DAPP en live (HEROKU, AWS, Vercel...) : URL LINK
-
 ### NOTRE PROJET
+
