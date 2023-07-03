@@ -73,5 +73,8 @@ Nous avons modifié/ajouté :
 
 # Captures écrans
 
+<img src="/img/VotingBox_VisitorFin.png" alt="VotingBox Visiteur Fin de vote">
+<img src="/img/VotingBox_AdminFin.png" alt="Admin Console">
+
 
 
