@@ -13,9 +13,9 @@ Un tirage au sort est effectué parmi ceux qui ont élu le plus beau modèle et 
 # Publication
 
 Nos Vidéos de démo :
-- Full (Maxime) : https://www.loom.com/share/ec24a62f6f3f44208c2a376726ce11b9?sid=d05e3338-d264-4e2c-809a-f9a053eb3792
-- Partie 1 (Charly) : https://www.loom.com/share/d59dab984b0a4e82a6a8c95d7b6c1a0b?sid=b7c8901e-a25b-4d3f-b81d-a04ef4ba8de4
-- Partie 2 (Cgarly) : https://www.loom.com/share/a42ec549b1bf4706ac03181f12360272?sid=8f7b9672-6dd4-4131-8108-0756ff9da10f
+- Full (Maxime) : [Full Démo](https://www.loom.com/share/ec24a62f6f3f44208c2a376726ce11b9?sid=d05e3338-d264-4e2c-809a-f9a053eb3792)
+- Partie 1 (Charly) : [Démo Part1](https://www.loom.com/share/d59dab984b0a4e82a6a8c95d7b6c1a0b?sid=b7c8901e-a25b-4d3f-b81d-a04ef4ba8de4)
+- Partie 2 (Charly) : [Démo Part2](https://www.loom.com/share/a42ec549b1bf4706ac03181f12360272?sid=8f7b9672-6dd4-4131-8108-0756ff9da10f)
 
 Notre DAPP en live (Vercel ) : https://projet3-wine.vercel.app/
 
