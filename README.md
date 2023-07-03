@@ -1,4 +1,4 @@
-# Projet - Système de vote 3 : Binome Charly et Maxime
+# Projet 3 - Système de vote : Binome Charly et Maxime
 
 La VotingBox est une application décentralisée (DAPP) qui permet de voter pour élire le plus beau modèle de Ferrari.
 
