@@ -4,9 +4,9 @@ La VotingBox est une application décentralisée (DAPP) qui permet de voter pour
 
 Pour être ajouter à la whitelist, il faut envoyer, au propriétaire du contrat, un certains montant d'ETH correspondant au code du concours.
 
-Le propriétaire reçoit le montant correspondant au code du concours et rajoute l'adresse de la personne qui a envoyé les fonds à la whiteliste.
+Le propriétaire reçoit le montant correspondant au code du concours et rajoute l'adresse de la personne qui a envoyé les fonds à la whitelist.
 
-La whiteliste vote et élit le plus beau modèle.
+La whitelist vote et élit le plus beau modèle.
 
 Un tirage au sort est effectué parmi ceux qui ont élu le plus beau modèle et le gagnant reçoit 75% des ETH reçus pour participer à ce vote.
 
@@ -51,7 +51,7 @@ Nous avons modifié/ajouté :
  - la fonction getOneProposal() pour permettre à tout le monde de voir le résultat en fin de vote (Voir spécifications du projet ci-dessous)
  - les NatSpec
 
- # Reste à faire :
+ # Points d'amélioration :
 
  - dans le tableau de la liste des Voteurs, une colonne hasVoted (Permet de cloturer les votes si besoin)
  - dans le tableau de la liste des Propositions, un colonne avec le nombre de votes (voteCount)
@@ -70,6 +70,8 @@ Nous avons modifié/ajouté :
 * à l'administrateur de mettre fin à la session de vote.
 * à l'administrateur de comptabiliser les votes.
 * à tout le monde de consulter le résultat.
+
+# Captures écrans
 
 
 
