@@ -1,4 +1,4 @@
-# Projet 3 - Système de vote : Binome Charly et Maxime
+# Projet 3 - Système de vote : Binôme Charly et Maxime
 
 La VotingBox est une application décentralisée (DAPP) qui permet de voter pour élire le plus beau modèle de Ferrari.
 
@@ -20,7 +20,7 @@ Nos Vidéos de démo :
 Notre DAPP en live (Vercel ) : https://projet3-wine.vercel.app/
 
     => Pré-requis : utiliser un navigateur avec le plugin Metamask sinon page blanche
-    => Merci @Igor pour nous avoir indiquer les bugs rencontrés dans [Vercel](https://vercel.com/) lors du déploiement de projets "OUTPUT DIRECTORY: buil" => OVERRIDE
+    => Merci @Igor pour nous avoir indiquer les bugs rencontrés dans VERCEL lors du déploiement de projets "OUTPUT DIRECTORY: build" => OVERRIDE
 
 Contrat Goerli : https://goerli.etherscan.io/address/0xF67Ce2BA06B904DC72C224D10dC51176117d66d7
 
@@ -53,8 +53,8 @@ Nous avons modifié/ajouté :
 
  # Points d'amélioration :
 
- - dans le tableau de la liste des Voteurs, une colonne hasVoted (Permet de cloturer les votes si besoin)
- - dans le tableau de la liste des Propositions, un colonne avec le nombre de votes (voteCount)
+ - dans le tableau de la liste des Voteurs, ajouter une colonne hasVoted (Permet de clôturer les votes si besoin)
+ - dans le tableau de la liste des Propositions, ajouter une colonne avec le nombre de votes (voteCount)
  - remonter les composanst dans une architecture moins profonde => simplifier l'architecture des dossiers et fichiers
  - ajouter des effets aux différents boutons, des images, un background...
 
@@ -73,7 +73,10 @@ Nous avons modifié/ajouté :
 
 # Captures écrans
 
+<img src="/img/VotingBox_VisitorStart.png" alt="VotingBox Visiteur">
+
 <img src="/img/VotingBox_VisitorFin.png" alt="VotingBox Visiteur Fin de vote">
+
 <img src="/img/VotingBox_AdminFin.png" alt="Admin Console">
 
 
