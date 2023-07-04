@@ -73,7 +73,7 @@ Nous avons modifié/ajouté :
 
 # Captures écrans
 
-<img src="/img/VotingBox_VisitorStart.png" alt="VotingBox Visiteur">
+<img src="/img/VotingBox_Start.png" alt="VotingBox Visiteur">
 
 <img src="/img/VotingBox_VisitorFin.png" alt="VotingBox Visiteur Fin de vote">
 
